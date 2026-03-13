@@ -30,22 +30,23 @@ const Navbar: React.FC<NavbarProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (headerRef.current && mounted) {
-      const isDark = theme === 'dark' || resolvedTheme === 'dark';
-      const header = headerRef.current;
-      
-      // ULTRA TRANSPARENT - 15% opacity for extreme glassy effect!
-      header.style.backgroundColor = isDark ? 'rgba(15, 23, 42, 0.15)' : 'rgba(255, 255, 255, 0.15)';
-      // MAXIMUM BLUR for ultra frosted glass effect
-      header.style.backdropFilter = 'blur(60px) saturate(250%) brightness(1.1)';
-      (header.style as any).webkitBackdropFilter = 'blur(60px) saturate(250%) brightness(1.1)';
-      // Remove border - using gradient div instead
-      header.style.borderBottom = 'none';
-      header.style.boxShadow = '0 8px 32px rgba(251, 146, 60, 0.3), 0 0 60px rgba(251, 146, 60, 0.15)';
-      header.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-    }
-  }, [mounted, theme, resolvedTheme, scrolled]);
+  const isDark = theme === "dark" || resolvedTheme === "dark";
+  
+  <header
+    className="fixed top-0 left-0 right-0 z-50"
+    style={{
+      backgroundColor: isDark
+        ? "rgba(15,23,42,0.15)"
+        : "rgba(255,255,255,0.15)",
+      backdropFilter: "blur(60px) saturate(250%) brightness(1.1)",
+      WebkitBackdropFilter: "blur(60px) saturate(250%) brightness(1.1)",
+      borderBottom: "none",
+      boxShadow: scrolled
+        ? "0 8px 32px rgba(251,146,60,0.3)"
+        : "none",
+      transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
+    }}
+  >
 
   if (!mounted) {
     return (
