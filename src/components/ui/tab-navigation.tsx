@@ -8,11 +8,11 @@ const TabNavigation = () => {
     'py-1 px-1 bg-transparent group transition-[border-radius] duration-500 ease-in-out [will-change:border-radius]';
 
   const linkBase =
-    'rounded-xl px-6 py-2 block text-center tab-link text-slate-700 dark:text-slate-200 font-medium ' +
+    'rounded-xl px-6 py-2 block text-center tab-link text-slate-700 dark:text-slate-200 font-medium border border-transparent ' +
     'transition-all duration-300 ease-out ' +
     'group-hover:rounded-2xl group-hover:text-orange-800 dark:group-hover:text-white group-hover:backdrop-blur-md ' +
     'group-hover:bg-gradient-to-r group-hover:from-orange-200/60 group-hover:to-orange-100/50 dark:group-hover:from-orange-500/30 dark:group-hover:to-orange-400/20 ' +
-    'group-hover:border group-hover:border-orange-300/70 dark:group-hover:border-orange-400/40 ' +
+    'group-hover:border-orange-300/70 dark:group-hover:border-orange-400/40 ' +
     'group-hover:shadow-[0_8px_26px_rgba(251,146,60,0.35)]';
 
   const spacerBase =
@@ -55,7 +55,7 @@ const TabNavigation = () => {
           onMouseEnter={() => setHoveredTab('trade')}
           onMouseLeave={() => setHoveredTab(null)}
         >
-          <Link href="/" className={`${linkBase} group-hover:rounded-b-2xl`}>
+          <Link href="/trade" className={`${linkBase} group-hover:rounded-b-2xl`}>
             Trade
           </Link>
         </div>
@@ -70,7 +70,12 @@ const TabNavigation = () => {
           onMouseEnter={() => setHoveredTab('docs')}
           onMouseLeave={() => setHoveredTab(null)}
         >
-          <Link href="/" className={`${linkBase} group-hover:rounded-b-2xl`}>
+          <Link
+            href="https://github.com/ankitkr104/Djed-Solidity-ERC20BaseCoin-WebUI#readme"
+            target="_blank"
+            rel="noreferrer"
+            className={`${linkBase} group-hover:rounded-b-2xl`}
+          >
             Docs
           </Link>
         </div>
